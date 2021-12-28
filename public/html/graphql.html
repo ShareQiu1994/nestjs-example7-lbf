@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>graphql</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <button id="test">
+      graphql 模拟请求数据(如果为鉴权测试 请手动修改token)
+    </button>
+    <input type="text" id="token" />
+  </body>
+</html>
+
+<script>
+  $('#test').on('click', () => {
+    $.ajax({
+      url: '/graphql',
+      method: 'post',
+      dataType: 'json',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + $('#token').val(),
+      },
+      data: JSON.stringify({
+        operationName: null,
+        variables: {},
+        query: '{ bookmarkFindAll {  name}}',
+      }),
+      success: function(res) {
+        console.log(res);
+      },
+    });
+  });
+
+  /*
+  graphql 查询语法 参考
+
+  query{
+  bookmarkFindAll{
+    name,id
+  },
+  bookmarkFindId(id:19){
+    name
+  }
+}
+
+
+
+# mutation{
+#   # bookmarkDelete(id:1){
+#   #   name
+#   # }
+  
+#   # bookmarkAdd(Bookmark:{
+#   #   name:"啊实打实222",
+#   #   date:"2018-12-12",
+#   #   json:{
+#   #     aa:11
+#   #   }
+#   # }){
+#   #   name,date,json
+#   # }
+# }
+
+  */
+</script>

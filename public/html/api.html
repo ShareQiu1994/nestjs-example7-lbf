@@ -1,0 +1,34 @@
+<!--
+ * @version: 1.0.0
+ * @Author: liubofang<421419567@qq.com>
+ * @Date: 2020-10-03 23:18:12
+ * @LastEditTime: 2020-12-06 15:05:02
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>api</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <button id="test">api 模拟请求数据(测试接口 跨域)</button>
+  </body>
+</html>
+
+<script>
+  $("#test").on("click", () => {
+    $.ajax({
+      url: "/auth/signInToken",
+      method: "post",
+      data: {
+        userName: "string"
+      },
+      success: function(res) {
+        console.log(res);
+      }
+    });
+  });
+</script>

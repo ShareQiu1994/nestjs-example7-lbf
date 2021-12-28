@@ -1,0 +1,51 @@
+<!--
+ * @version: 1.0.0
+ * @Author: liubofang<421419567@qq.com>
+ * @Date: 2020-12-06 15:00:47
+ * @LastEditTime: 2020-12-06 15:42:02
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <p>单文件</p>
+    <form action="/album/file" method="post" enctype="multipart/form-data" >    
+        <input type="text" name="title1" id="" placeholder="新闻标题"/>    
+
+        <input type="text" name="keywords" id="" placeholder="关键词"/>        
+
+        <input type="text" name="author" id="" placeholder="作者" />
+         
+        
+        <input type="file" name="file" id="" />  
+
+
+       
+        <input type="text" name="status" id="" placeholder="状态" />       
+
+        <input type="submit" value="提交">        
+    </form>
+
+    <br/>
+    <p>多文件</p>
+    <form action="/album/files" method="post" enctype="multipart/form-data" >    
+        <input type="text" name="title1" id="" placeholder="新闻标题"/>    
+
+        <input type="text" name="keywords" id="" placeholder="关键词"/>        
+
+        <input type="text" name="author" id="" placeholder="作者" />
+         
+        <!-- 多文件 -->
+        <input type="file" name="file" id=""  multiple="multiple"/>
+       
+        <input type="text" name="status" id="" placeholder="状态" />       
+
+        <input type="submit" value="提交">        
+    </form>
+    
+</body>
+</html>
