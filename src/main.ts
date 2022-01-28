@@ -29,7 +29,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     logger: log4jsService,
   });
-
+  
   /* 配置session中级件 */
   app.use(
     session({
@@ -67,13 +67,12 @@ async function bootstrap() {
   app.useWebSocketAdapter(new IoAdapter(app));
 
   /* 配置静态目录 */
-  app.useStaticAssets(join(__dirname, '..', 'public')); // 配置静态资源目录 http://localhost:3000/images/0.jpg
+  app.useStaticAssets('./public'); // 配置静态资源目录 http://localhost:8096/css/index.css
 
   /* 配置模板引擎 */
   // app.setViewEngine('ejs'); //配置模板引擎类型 必须提前安装好依赖
   app.engine('ejs', require('ejs').__express);
-  app.setBaseViewsDir(join(__dirname, '..', 'views'));
-
+  app.setBaseViewsDir('./views');
   /* 反向代理 */
   app.use('/gwc', createProxyMiddleware({ target: process.env.GEOSERVER, changeOrigin: true })); 
   // http://localhost:3000/api/foo/bar -> http://www.example.org/api/foo/bar

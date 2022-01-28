@@ -16,7 +16,7 @@ export default registerAs('postgresqlOptions', () => ({
   host: process.env.POSTGRESSQLCONFIG_HOST || '127.0.0.1',
   port: Number(process.env.POSTGRESSQLCONFIG_PORT) || 5432,
   username: process.env.POSTGRESSQLCONFIG_USERNAME || 'postgres',
-  password: process.env.POSTGRESSQLCONFIG_PASSWORD || 'lbf@2018',
+  password: process.env.POSTGRESSQLCONFIG_PASSWORD || '123456',
   database: process.env.POSTGRESSQLCONFIG_DATABASE || 'lbf',
   synchronize: true,
   entities: [Systemsetting, Bookmark,Photo,Users],
